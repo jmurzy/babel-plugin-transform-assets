@@ -54,7 +54,7 @@ export default function transformAssets({ types: t }) {
           if (!t.isExpressionStatement(path.parent)) {
             const from = resolveModulePath(file.opts.filename);
             /* eslint-disable global-require, import/no-dynamic-require, new-cap */
-            const p = require(resolve(from, filePath));
+            const p = require(require.resolve(filePath, { paths: [from] }));
 
             path.replaceWith(t.StringLiteral(p));
             /* eslint-enable */
