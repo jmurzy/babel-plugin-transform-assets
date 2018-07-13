@@ -23,6 +23,14 @@ describe('transforms assets', () => {
 var file = "file.txt?9LDjftP";`);
   });
 
+  it('replaces require statements with filename when importing from a package dependency', () => {
+    expect(transform('fixtures/require-txt-package-dependency.js', {
+      extensions: ['txt'],
+    }).code).to.be.equal(`"use strict";
+
+var file = "file.txt?9LDjftP";`);
+  });
+
   it('replaces import statements with filename', () => {
     expect(transform('fixtures/import-txt.js', {
       extensions: ['txt'],
