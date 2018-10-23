@@ -26,7 +26,7 @@ See the spec for [more examples](https://github.com/jmurzy/babel-plugin-transfor
 ## Installation
 
 ```sh
-$ npm install babel-plugin-transform-assets
+npm install -D babel-plugin-transform-assets
 ```
 
 ## Usage
@@ -37,10 +37,12 @@ $ npm install babel-plugin-transform-assets
 
 ```json
 {
-  "plugins": [["transform-assets", {
-                "extensions": ["svg"],
-                "name": "[name].[ext]?[sha512:hash:base64:7]",
-              }]]
+  "plugins": [
+      ["transform-assets", {
+          "extensions": ["svg"],
+          "name": "[name].[ext]?[sha512:hash:base64:7]"
+      }]
+  ]
 }
 ```
 
@@ -48,10 +50,12 @@ $ npm install babel-plugin-transform-assets
 
 ```javascript
 require('babel-core').transform('code', {
-  plugins: [['transform-assets', {
-              extensions: ['svg'],
-              name: '[name].[ext]?[sha512:hash:base64:7]',
-            }]]
+    plugins: [
+        ['transform-assets', {
+            extensions: ['svg'],
+            name: '[name].[ext]?[sha512:hash:base64:7]',
+        }]
+    ]
 });
 ```
 
